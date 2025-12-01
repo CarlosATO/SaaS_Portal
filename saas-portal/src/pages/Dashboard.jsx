@@ -75,6 +75,22 @@ const Dashboard = () => {
               🦸‍♂️ Admin Panel
             </button>
           )}
+          {/* Botón Gestión de Equipo */}
+          <button 
+            onClick={() => navigate('/team')}
+            style={{ 
+              marginRight: '15px', 
+              padding: '8px 16px', 
+              backgroundColor: '#3b82f6', 
+              color: 'white', 
+              border: 'none', 
+              borderRadius: '6px', 
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}
+          >
+            👥 Equipo
+          </button>
         </div>
         <button onClick={handleLogout} style={{ padding: '8px 16px', cursor: 'pointer', backgroundColor: '#ff4444', color: 'white', border: 'none', borderRadius: '4px' }}>
           Cerrar Sesión

@@ -3,6 +3,9 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import PrivateRoute from './components/PrivateRoute' // <--- Importamos el guardia
+import AdminPanel from './pages/AdminPanel'
+import Team from './pages/Team'
+import TeamSettings from './pages/TeamSettings'
 
 function App() {
   return (
@@ -24,6 +27,17 @@ function App() {
             </PrivateRoute>
           } 
         />
+        {/* Nueva ruta protegida para AdminPanel */}
+        <Route 
+          path="/admin" 
+          element={
+            <PrivateRoute>
+              <AdminPanel />
+            </PrivateRoute>
+          } 
+        />
+        {/* Ruta protegida para TeamSettings */}
+        <Route path="/team" element={<PrivateRoute><TeamSettings /></PrivateRoute>} />
       </Routes>
     </BrowserRouter>
   )
