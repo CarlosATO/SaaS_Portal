@@ -24,7 +24,7 @@ const Dashboard = () => {
         // 1. Traemos el perfil del usuario logueado
         const { data: profileData, error: profileError } = await supabase
           .from('profiles')
-          .select('full_name, organization_id')
+          .select('full_name, organization_id, is_super_admin')
           .eq('id', user.id)
           .single()
 
@@ -53,9 +53,29 @@ const Dashboard = () => {
   return (
     <div style={{ padding: '40px', fontFamily: 'sans-serif' }}>
       
-      {/* Header simple */}
+      {/* Header simple con botón de acceso para super admins */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
-        <h1>📊 Dashboard</h1>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <h1 style={{ marginRight: '20px' }}>📊 Dashboard</h1>
+          {/* Botón SOLO para Super Admins */}
+          {profile?.is_super_admin && (
+            <button 
+              onClick={() => navigate('/admin')}
+              style={{ 
+                marginRight: '15px', 
+                padding: '8px 16px', 
+                backgroundColor: '#10b981', 
+                color: 'white', 
+                border: 'none', 
+                borderRadius: '6px', 
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              🦸‍♂️ Admin Panel
+            </button>
+          )}
+        </div>
         <button onClick={handleLogout} style={{ padding: '8px 16px', cursor: 'pointer', backgroundColor: '#ff4444', color: 'white', border: 'none', borderRadius: '4px' }}>
           Cerrar Sesión
         </button>
