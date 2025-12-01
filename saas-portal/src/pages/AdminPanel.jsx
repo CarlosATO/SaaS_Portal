@@ -136,7 +136,7 @@ const AdminPanel = () => {
                         style={{
                           padding: '6px 12px',
                           cursor: 'pointer',
-                          border: 'none',
+                          // Removed duplicate `border` property; border set conditionally below
                           borderRadius: '20px',
                           fontWeight: 'bold',
                           fontSize: '12px',
