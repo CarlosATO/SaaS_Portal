@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   const apps = [
     { 
-      id: 'rrhh', name: 'Recursos Humanos', desc: 'Nóminas y empleados', icon: '👥', status: 'active', url: 'http://localhost:5174', color: 'bg-blue-500' 
+      id: 'rrhh', name: 'Recursos Humanos', desc: 'Nóminas y empleados', icon: '👥', status: 'active', url: import.meta.env.VITE_RRHH_URL, color: 'bg-blue-500' 
     },
     { 
       id: 'logis', name: 'Logística', desc: 'Flota y rutas', icon: '🚚', status: 'coming_soon', url: '/logistica', color: 'bg-orange-500' 
