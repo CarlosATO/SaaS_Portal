@@ -18,3 +18,5 @@ If you are developing a production application, we recommend using TypeScript wi
 
 cd saas-rrhh
 npm run dev
+
+direccion reloj contro: http://localhost:5174/worker-login

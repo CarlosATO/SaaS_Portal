@@ -2,10 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../services/supabaseClient';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { usePendingRequests } from '../hooks/usePendingRequests';
 
 const AbsenceManagement = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const pendingCount = usePendingRequests(user);
   const [requests, setRequests] = useState([]);
   const [types, setTypes] = useState([]);
   const [employees, setEmployees] = useState([]); // <--- NUEVO ESTADO
@@ -142,7 +144,14 @@ const AbsenceManagement = () => {
         {/* Encabezado */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Gestión de Ausencias</h2>
+            <h2 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+              Gestión de Ausencias
+              {pendingCount > 0 && (
+                <span className="bg-red-100 text-red-600 text-sm px-3 py-1 rounded-full border border-red-200">
+                  {pendingCount} Pendientes
+                </span>
+              )}
+            </h2>
             <p className="text-gray-500 mt-1">Solicitudes de vacaciones y permisos del equipo</p>
           </div>
           <div className="flex gap-3">
