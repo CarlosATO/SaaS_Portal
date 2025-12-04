@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fondo ligeramente distinto para diferenciar Logística de RRHH */
+body { @apply bg-stone-50 text-stone-900; }
